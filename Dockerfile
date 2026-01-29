@@ -5,7 +5,7 @@
 
 # Stage 1: Build stage
 # Builds the .NET application in a container with all dependencies
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 
 WORKDIR /build
 
@@ -28,7 +28,7 @@ RUN dotnet publish -c Release -o /build/publish
 # ============================================================================
 # Stage 2: Runtime stage
 # Creates minimal runtime image with only necessary files
-FROM mcr.microsoft.com/dotnet/aspnet:6.0-alpine
+FROM mcr.microsoft.com/dotnet/aspnet:10.0-alpine
 
 WORKDIR /app
 
